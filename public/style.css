@@ -1,0 +1,25 @@
+:root {
+  font: sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(174, 218, 238);
+}
+
+#root {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+
+main {
+  background-color: #fff;
+  padding: 2em;
+  border-radius: 10px;
+}

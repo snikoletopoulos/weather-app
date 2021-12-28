@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-import UserInput from "./UserInput";
+import Select from "react-select";
+import UserInput from "./mainCard/UserInput";
 import DetailCard from "./mainCard/DetailCard";
 
-export default function App() {
-	const [city, setCity] = useState("");
-	console.log(city);
-	return (
-		<>
-			<UserInput changeCity={setCity} />
-			<DetailCard />
-		</>
-	);
-}
+const App = () => {
+  const [city, setCity] = useState("");
+  console.log(city);
+
+  return (
+    <main>
+      <aside>
+        <UserInput changeCity={setCity} />
+        <Select />
+        <DetailCard />
+      </aside>
+      <section>Loading...</section>
+    </main>
+  );
+};
+
+export default App;
