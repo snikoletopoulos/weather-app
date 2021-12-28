@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import Select from "react-select";
-import UserInput from "./components/mainCard/UserInput";
-import DetailCard from "./components/mainCard/DetailCard";
-import "./global.css";
+import UserInput from "components/mainCard/UserInput";
+import DetailCard from "components/mainCard/DetailCard";
+import { ICountryForecast } from "types/api-types";
+import styles from "./App.module.css";
+import "global.css";
 
 const App = () => {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState<ICountryForecast | null>(null);
   console.log(city);
 
   return (
-    <main>
+    <main className={styles['card']}>
       <aside>
         <UserInput changeCity={setCity} />
-        <Select />
         <DetailCard />
       </aside>
       <section>Loading...</section>
