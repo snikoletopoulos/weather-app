@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import UserInput from "./mainCard/UserInput";
-import DetailCard from "./mainCard/DetailCard";
+import UserInput from "./components/mainCard/UserInput";
+import DetailCard from "./components/mainCard/DetailCard";
+import "./global.css";
 
 const App = () => {
   const [city, setCity] = useState("");
