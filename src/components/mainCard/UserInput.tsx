@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { getCityData } from "../../logic";
 
 const UserInput = ({ changeCity }: Props) => {
