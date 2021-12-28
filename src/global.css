@@ -17,9 +17,3 @@ body {
   place-content: center;
   height: 100vh;
 }
-
-main {
-  background-color: #fff;
-  padding: 2em;
-  border-radius: 10px;
-}
