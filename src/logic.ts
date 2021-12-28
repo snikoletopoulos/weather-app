@@ -1,13 +1,13 @@
 import axios from "axios";
+import { ICountryForecast } from "./types/api-types";
 
-export const getCityData = async (city: string): Promise<any> => {
-  const response = await axios.get(
-    `api.openweathermap.org/data/2.5/weather?id=${city}&appid=6e64ecf00c430c2fb61818892d6f7f37`
+export const getCityData: cityData = async cityId => {
+  const response = await axios.get<ICountryForecast>(
+    `api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${process.env.REACT_APP_API_KEY}`
   );
   console.log(response);
-  if (response.status === 200) {
-    return response.data;
-  } else {
-    return { error: response.status };
-  }
+
+  return response.data;
 };
+
+type cityData = (cityId: number) => Promise<ICountryForecast>;
