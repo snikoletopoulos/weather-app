@@ -1,29 +1,17 @@
 import React from "react";
-import { getCityData } from "../../logic";
+import Select from "react-select";
+
+import { ICountryForecast } from "types/api-types";
 
 const UserInput = ({ changeCity }: Props) => {
-  const [typing, setTyping] = useState("");
-
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setTyping(event.target.value);
-  }
-
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    changeCity(typing);
-    await getCityData("Athens");
-  }
+  const handleSubmit = () => {
+    changeCity(null);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="city">Your city</label>
-      <input
-        type="search"
-        name="city"
-        placeholder="Type your city"
-        value={typing}
-        onChange={handleChange}
-      />
+      <Select />
     </form>
   );
 };
