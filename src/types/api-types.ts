@@ -1,4 +1,4 @@
-export interface IApiResponse {
+export interface ICountryForecast {
   cod: string;
   message: number;
   /** Number of timestamps */
