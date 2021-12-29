@@ -10,7 +10,7 @@ import UserInput from "components/selectedDay/UserInput";
 import DetailCard from "components/selectedDay/DetailCard";
 
 const App = () => {
-  const [city, setCity] = useState<string>("");
+  const [city, setCity] = useState("");
   console.log(city);
 
   return (
