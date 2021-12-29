@@ -1,0 +1,13 @@
+.summary {
+  display: flex;
+  gap: 0.5em;
+}
+
+.summary__card {
+  text-align: center;
+}
+
+.summary__card--active {
+  color: white;
+  background-color: rgb(46, 168, 224);
+}
