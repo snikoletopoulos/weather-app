@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import UserInput from "components/mainCard/UserInput";
-import DetailCard from "components/mainCard/DetailCard";
+import UserInput from "components/selectedDay/UserInput";
+import DetailCard from "components/selectedDay/DetailCard";
 import { ICountryForecast } from "types/api-types";
 import styles from "./App.module.css";
 import "global.css";
