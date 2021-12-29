@@ -10,13 +10,13 @@ import UserInput from "components/selectedDay/UserInput";
 import DetailCard from "components/selectedDay/DetailCard";
 
 const App = () => {
-  const [city, setCity] = useState("");
+  const [userInput, setUserInput] = useState("");
   console.log(city);
 
   return (
     <Card className={styles["flex-container"]}>
       <aside>
-        <UserInput changeCity={setCity} />
+        <UserInput changeCity={setUserInput} />
         <DetailCard />
       </aside>
 
