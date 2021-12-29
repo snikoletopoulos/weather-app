@@ -10,7 +10,7 @@ const App = () => {
   console.log(city);
 
   return (
-    <main className={styles['card']}>
+    <main className={styles["card"]}>
       <aside>
         <UserInput changeCity={setCity} />
         <DetailCard />
