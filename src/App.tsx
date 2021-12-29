@@ -14,13 +14,16 @@ const App = () => {
   console.log(city);
 
   return (
-    <main className={styles["card"]}>
+    <Card className={styles["flex-container"]}>
       <aside>
         <UserInput changeCity={setCity} />
         <DetailCard />
       </aside>
-      <section>Loading...</section>
-    </main>
+
+      <section className={styles["main-container"]}>
+        <DayCards />
+      </section>
+    </Card>
   );
 };
 
