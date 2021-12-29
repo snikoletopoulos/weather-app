@@ -6,7 +6,7 @@ import styles from "./App.module.css";
 import "global.css";
 
 const App = () => {
-  const [city, setCity] = useState<ICountryForecast | null>(null);
+  const [city, setCity] = useState<string>("");
   console.log(city);
 
   return (
