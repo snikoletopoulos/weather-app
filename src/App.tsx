@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./App.module.css";
 import "global.css";
 
 import { ICountryForecast } from "types/api-types";
+import { getCityData } from "logic";
 
 import Card from "components/UI/Card";
 import DayCards from "components/detailArea/DayCards";
@@ -11,7 +12,15 @@ import DetailCard from "components/selectedDay/DetailCard";
 
 const App = () => {
   const [userInput, setUserInput] = useState("");
-  console.log(city);
+  const [city, setCity] = useState<ICountryForecast | null>(null);
+
+  useEffect(() => {
+    if (!userInput) return;
+
+    (async () => {
+      setCity(await getCityData(userInput));
+    })();
+  }, [userInput]);
 
   return (
     <Card className={styles["flex-container"]}>
