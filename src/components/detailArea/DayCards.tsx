@@ -9,25 +9,25 @@ const DayCards = () => {
     <div className={`${styles["summary"]}`}>
       <Card className={`${styles["summary__card"]} ${activeDay === 1 ? styles['summary__card--active'] : ''}`}>
         <div>Today</div>
-        Icon
+        <Icon icon="10d" />
         <p>Humidity</p>
         <p>30%</p>
       </Card>
       <Card className={styles["summary__card"]}>
         <div>Today</div>
-        Icon
+        <Icon icon="10d" />
         <p>Humidity</p>
         <p>30%</p>
       </Card>
       <Card className={styles["summary__card"]}>
         <div>Today</div>
-        Icon
+        <Icon icon="10d" />
         <p>Humidity</p>
         <p>30%</p>
       </Card>
       <Card className={styles["summary__card"]}>
         <div>Today</div>
-        Icon
+        <Icon icon="10d" />
         <p>Humidity</p>
         <p>30%</p>
       </Card>
@@ -36,3 +36,7 @@ const DayCards = () => {
 };
 
 export default DayCards;
+
+interface Props {
+  forecast?: ICountryForecast;
+}
