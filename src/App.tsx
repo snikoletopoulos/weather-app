@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import styles from "./App.module.css";
 import "global.css";
 
-import { ICountryForecast } from "types/api-types";
-import { getCityData } from "logic";
+import { ICountryForecast, DayEntry } from "types/api-types";
+import { getCityData, userLocation } from "logic";
 
 import Card from "components/UI/Card";
 import DayCards from "components/detailArea/DayCards";
@@ -11,8 +11,9 @@ import UserInput from "components/selectedDay/UserInput";
 import DetailCard from "components/selectedDay/DetailCard";
 
 const App = () => {
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState("Athens");
   const [city, setCity] = useState<ICountryForecast | null>(null);
+  const [forecasts, setForecasts] = useState<IDayForecast[]>([]);
 
   useEffect(() => {
     if (!userInput) return;
@@ -30,10 +31,16 @@ const App = () => {
       </aside>
 
       <section className={styles["main-container"]}>
-        <DayCards />
+        <DayCards forecasts={forecasts} />
       </section>
     </Card>
   );
 };
 
 export default App;
+
+export interface IDayForecast {
+  date: Date;
+  humidity: number;
+  forecast: DayEntry[];
+}
