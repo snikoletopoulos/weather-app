@@ -10,3 +10,12 @@ export const getCityData: cityData = async city => {
 };
 
 type cityData = (cityId: string) => Promise<ICountryForecast>;
+
+export const userLocation = (
+  successCallback: any,
+  errorCallback: any = null
+) => {
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
+    enableHighAccuracy: true,
+  });
+};
