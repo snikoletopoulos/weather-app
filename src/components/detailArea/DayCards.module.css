@@ -5,6 +5,7 @@
 
 .summary__card {
   text-align: center;
+  background-color: rgb(203, 231, 245);
 }
 
 .summary__card--active {
