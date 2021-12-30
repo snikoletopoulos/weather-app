@@ -23,6 +23,40 @@ const App = () => {
     })();
   }, [userInput]);
 
+  useEffect(() => {
+    if (!city) return;
+
+    setForecasts(
+      city.list.reduce<IDayForecast[]>((sortedForecast, forecast) => {
+        const date = new Date(forecast.dt_txt);
+
+        let currentForecastDate = sortedForecast.find(
+          dayForecast =>
+            dayForecast.date.getDate() === date.getDate() &&
+            dayForecast.date.getMonth() === date.getMonth() &&
+            dayForecast.date.getFullYear() === date.getFullYear()
+        );
+
+        if (!currentForecastDate) {
+          const forecastDateIndex = sortedForecast.push({
+            date,
+            humidity: forecast.main.humidity,
+            forecast: [],
+          });
+
+          currentForecastDate = sortedForecast[forecastDateIndex - 1];
+        } else {
+          currentForecastDate.humidity =
+            (currentForecastDate.humidity + forecast.main.humidity) / 2;
+        }
+
+        currentForecastDate.forecast.push(forecast);
+
+        return sortedForecast;
+      }, [])
+    );
+  }, [city]);
+
   return (
     <Card className={styles["flex-container"]}>
       <aside>

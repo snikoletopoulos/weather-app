@@ -1,42 +1,55 @@
 import React from "react";
 import styles from "./DayCards.module.css";
 
+import { ICountryForecast } from "types/api-types";
+import { IDayForecast } from "App";
+
 import Card from "components/UI/Card";
+import Icon from "components/UI/Icon";
 
 const activeDay = 1;
-const DayCards = () => {
+
+const isToday = (forecast: IDayForecast) => {
+  const today = new Date();
+
   return (
-    <div className={`${styles["summary"]}`}>
-      <Card className={`${styles["summary__card"]} ${activeDay === 1 ? styles['summary__card--active'] : ''}`}>
-        <div>Today</div>
-        <Icon icon="10d" />
-        <p>Humidity</p>
-        <p>30%</p>
-      </Card>
-      <Card className={styles["summary__card"]}>
-        <div>Today</div>
-        <Icon icon="10d" />
-        <p>Humidity</p>
-        <p>30%</p>
-      </Card>
-      <Card className={styles["summary__card"]}>
-        <div>Today</div>
-        <Icon icon="10d" />
-        <p>Humidity</p>
-        <p>30%</p>
-      </Card>
-      <Card className={styles["summary__card"]}>
-        <div>Today</div>
-        <Icon icon="10d" />
-        <p>Humidity</p>
-        <p>30%</p>
-      </Card>
-    </div>
+    forecast.date.getDate() === today.getDate() &&
+    forecast.date.getMonth() === today.getMonth() &&
+    forecast.date.getFullYear() === today.getFullYear()
   );
 };
+
+const DayCards = (props: Props) => (
+  <div className={`${styles["summary"]}`}>
+    {props.forecasts.map((forecast: IDayForecast) => {
+      let title = forecast.date.toLocaleString("en-EN", {
+        month: "short",
+        day: "numeric"
+      });
+
+      if (isToday(forecast)) {
+        title = "Today";
+      }
+
+      return (
+        <Card
+          key={`${forecast.date.getMonth()}-${forecast.date.getDate()}`}
+          className={`${styles["summary__card"]} ${
+            isToday(forecast) ? styles["summary__card--active"] : ""
+          }`}
+        >
+          <div>{title}</div>
+          <Icon icon="10d" />
+          <p>Humidity</p>
+          <p>{forecast.humidity.toFixed(1)}%</p>
+        </Card>
+      );
+    })}
+  </div>
+);
 
 export default DayCards;
 
 interface Props {
-  forecast?: ICountryForecast;
+  forecasts: IDayForecast[];
 }
