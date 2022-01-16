@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
 
-const UserInput = ({ changeCity }: Props) => {
+const UserInput: React.FC<Props> = ({ changeCity }) => {
   const formik = useFormik({
     initialValues: {
       city: "",

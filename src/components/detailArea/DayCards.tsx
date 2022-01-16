@@ -19,12 +19,12 @@ const isToday = (forecast: IDayForecast) => {
   );
 };
 
-const DayCards = (props: Props) => (
+const DayCards: React.FC<Props> = props => (
   <div className={`${styles["summary"]}`}>
     {props.forecasts.map((forecast: IDayForecast) => {
       let title = forecast.date.toLocaleString("en-EN", {
         month: "short",
-        day: "numeric"
+        day: "numeric",
       });
 
       if (isToday(forecast)) {

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-const Attribute = ({ attribute }: Props) => {
+const Attribute: React.FC<Props> = ({ attribute }) => {
   return (
     <section>
       <p className="text-muted">{attribute.title}</p>
