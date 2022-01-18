@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import styles from "./App.module.css";
-import "global.css";
+import styles from "@/App.module.css";
+import "@/global.css";
 
-import { ICountryForecast, DayEntry } from "types/api-types";
-import { getCityData, userLocation } from "logic";
+import { ICountryForecast, DayEntry } from "@/types/api-types";
+import { getCityData, userLocation } from "@/logic";
 
-import Card from "components/UI/Card";
-import DayCards from "components/detailArea/DayCards";
-import UserInput from "components/selectedDay/UserInput";
-import DetailCard from "components/selectedDay/DetailCard";
-import LineChart from "components/chart/LineChart";
+import Card from "@/components/UI/Card";
+import DayCards from "@/components/detailArea/DayCards";
+import UserInput from "@/components/selectedDay/UserInput";
+import DetailCard from "@/components/selectedDay/DetailCard";
+import LineChart from "@/components/chart/LineChart";
 
 const App = () => {
   const [userInput, setUserInput] = useState("Athens");

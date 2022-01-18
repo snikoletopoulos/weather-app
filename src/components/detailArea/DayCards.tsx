@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./DayCards.module.css";
 
-import { ICountryForecast } from "types/api-types";
-import { IDayForecast } from "App";
+import { ICountryForecast } from "@/types/api-types";
+import { IDayForecast } from "@/App";
 
-import Card from "components/UI/Card";
-import Icon from "components/UI/Icon";
+import Card from "@/components/UI/Card";
+import Icon from "@/components/UI/Icon";
 
 const activeDay = 1;
 
