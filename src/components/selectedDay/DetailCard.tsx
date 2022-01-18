@@ -1,5 +1,3 @@
-import React from 'react'
-
 const DetailCard = () => {
   const today = new Date();
 

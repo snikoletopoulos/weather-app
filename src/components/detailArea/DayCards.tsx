@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./DayCards.module.css";
 
 import { ICountryForecast } from "@/types/api-types";

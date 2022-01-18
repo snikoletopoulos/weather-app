@@ -1,5 +1,3 @@
-import React from "react";
-
 const Icon: React.FC<Props> = props => {
   return (
     <div className={props.className}>

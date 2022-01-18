@@ -1,5 +1,3 @@
-import React from "react";
-
 const Attribute: React.FC<Props> = ({ attribute }) => {
   return (
     <section>
