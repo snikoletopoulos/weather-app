@@ -9,6 +9,7 @@ import Card from "components/UI/Card";
 import DayCards from "components/detailArea/DayCards";
 import UserInput from "components/selectedDay/UserInput";
 import DetailCard from "components/selectedDay/DetailCard";
+import LineChart from "components/chart/LineChart";
 
 const App = () => {
   const [userInput, setUserInput] = useState("Athens");
@@ -65,6 +66,7 @@ const App = () => {
       </aside>
 
       <section className={styles["main-container"]}>
+        <LineChart data={forecasts} />
         <DayCards forecasts={forecasts} />
       </section>
     </Card>

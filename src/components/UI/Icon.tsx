@@ -1,8 +1,8 @@
 import React from "react";
 
-const Icon = (props: Props) => {
+const Icon: React.FC<Props> = props => {
   return (
-    <div>
+    <div className={props.className}>
       <img
         src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}
         alt=""
@@ -15,4 +15,5 @@ export default Icon;
 
 interface Props {
   icon: string;
+  className?: string;
 }
