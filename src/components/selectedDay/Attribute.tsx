@@ -1,3 +1,5 @@
+import styles from "./Attribute.module.css";
+
 interface Props {
 	attribute: AttributeInterface;
 }
@@ -9,10 +11,10 @@ export interface AttributeInterface {
 
 const Attribute: React.FC<Props> = ({ attribute }) => {
 	return (
-		<section>
-			<p className="text-muted">{attribute.title}</p>
-			<p>{attribute.value}</p>
-		</section>
+		<article className={styles.attribute}>
+			<p className={styles["attribute__title"]}>{attribute.title}</p>
+			<p className={styles["attribute__value"]}>{attribute.value}</p>
+		</article>
 	);
 };
 
