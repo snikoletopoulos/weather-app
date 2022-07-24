@@ -1,5 +1,16 @@
 import { Chart } from "react-chartjs-2";
+import {
+	Chart as ChartJS,
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+
 import { IDayForecast } from "../../App";
+
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
 
 interface Props {
 	data: IDayForecast[];
@@ -12,7 +23,6 @@ const LineChart: React.FC<Props> = props => {
 		labels: labels,
 		datasets: [
 			{
-				label: "My First dataset",
 				backgroundColor: "rgb(255, 99, 132)",
 				borderColor: "rgb(255, 99, 132)",
 				data: [0, 10, 5, 2, 20, 30, 45],
@@ -20,7 +30,7 @@ const LineChart: React.FC<Props> = props => {
 		],
 	};
 
-	return <Chart type="line" data={data} />;
+	return <Line data={data} />;
 };
 
 export default LineChart;
