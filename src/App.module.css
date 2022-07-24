@@ -6,6 +6,6 @@
 	margin-top: 2rem;
 }
 
-.main-section {
-	flex-grow: 1;
+.days-container {
+	overflow: scroll;
 }

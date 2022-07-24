@@ -18,13 +18,13 @@ const App = () => {
 
 	return (
 		<Card className={styles["flex-container"]}>
-			<aside>
+			<section>
 				<UserInput changeCity={setUserInput} />
 				<DetailCard />
-			</aside>
+			</section>
 
-			<section className={styles["main-container"]}>
-				{/* <LineChart data={forecasts} /> */}
+			<section className={styles["days-container"]}>
+				<LineChart />
 				<DayCards forecasts={forecasts} />
 			</section>
 		</Card>
