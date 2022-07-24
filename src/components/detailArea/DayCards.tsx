@@ -2,52 +2,30 @@ import styles from "./DayCards.module.css";
 
 import { ICountryForecast } from "@/types/api-types";
 import { IDayForecast } from "@/App";
+import { isToday } from "@/helpers/date.helpers";
 
-import Card from "@/components/UI/Card";
-import Icon from "@/components/UI/Icon";
-
-const activeDay = 1;
-
-const isToday = (forecast: IDayForecast) => {
-	const today = new Date();
-
-	return (
-		forecast.date.getDate() === today.getDate() &&
-		forecast.date.getMonth() === today.getMonth() &&
-		forecast.date.getFullYear() === today.getFullYear()
-	);
-};
+import DayCard from "@/components/detailArea/DayCard";
 
 interface Props {
 	forecasts: IDayForecast[];
 }
 
-const DayCards: React.FC<Props> = props => (
+const DayCards: React.FC<Props> = ({ forecasts }) => (
 	<div className={`${styles["summary"]}`}>
-		{props.forecasts.map((forecast: IDayForecast) => {
-			let title = forecast.date.toLocaleString("en-EN", {
-				month: "short",
-				day: "numeric",
-			});
-
-			if (isToday(forecast)) {
-				title = "Today";
-			}
-
+		{forecasts.map((forecast: IDayForecast) => {
 			return (
-				<Card
+				<DayCard
 					key={`${forecast.date.getMonth()}-${forecast.date.getDate()}`}
-					className={`${styles["summary__card"]} ${
-						isToday(forecast) ? styles["summary__card--active"] : ""
-					}`}
-				>
-					<div>{title}</div>
-					<Icon icon="10d" />
-					<p>Humidity</p>
-					<p>{forecast.humidity.toFixed(1)}%</p>
-				</Card>
+					date={new Date()}
+					humidity={forecast.humidity}
+				/>
 			);
 		})}
+		<DayCard date={new Date()} humidity={23} />
+		<DayCard date={new Date()} humidity={23} />
+		<DayCard date={new Date()} humidity={23} />
+		<DayCard date={new Date()} humidity={23} />
+		<DayCard date={new Date()} humidity={23} />
 	</div>
 );
 
