@@ -1,0 +1,9 @@
+.details-container {
+	text-align: center;
+	white-space: nowrap;
+}
+
+.attributes-container {
+	display: flex;
+	justify-content: space-evenly;
+}
