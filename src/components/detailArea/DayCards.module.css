@@ -1,14 +1,15 @@
 .summary {
-  display: flex;
-  gap: 0.5em;
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 0.5em;
 }
 
 .summary__card {
-  text-align: center;
-  background-color: rgb(203, 231, 245);
+	text-align: center;
+	background-color: rgb(203, 231, 245);
 }
 
 .summary__card--active {
-  color: white;
-  background-color: rgb(46, 168, 224);
+	color: white;
+	background-color: rgb(46, 168, 224);
 }

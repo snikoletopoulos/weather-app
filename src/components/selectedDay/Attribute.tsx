@@ -1,21 +1,21 @@
-import React from 'react'
-
-const Attribute = ({ attribute }: Props) => {
-  return (
-    <section>
-      <p className="text-muted">{attribute.title}</p>
-      <p>{attribute.value}</p>
-    </section>
-  );
-};
-
-export default Attribute;
+import styles from "./Attribute.module.css";
 
 interface Props {
-  attribute: AttributeInterface;
+	attribute: AttributeInterface;
 }
 
 export interface AttributeInterface {
-  title: string;
-  value: string | number;
+	title: string;
+	value: string | number;
 }
+
+const Attribute: React.FC<Props> = ({ attribute }) => {
+	return (
+		<article className={styles.attribute}>
+			<p className={styles["attribute__title"]}>{attribute.title}</p>
+			<p className={styles["attribute__value"]}>{attribute.value}</p>
+		</article>
+	);
+};
+
+export default Attribute;
